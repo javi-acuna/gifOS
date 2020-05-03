@@ -7,12 +7,31 @@
     <meta name="author" content="Javier Emiliano Acuna" />
     <title>gifOS</title>
     <link rel="stylesheet" type="text/css" href="./css/index.css">
-    <link rel="stylesheet" type="text/css" href="./css/light_theme.css" title="light" id="light_theme">
-    <link rel="stylesheet" type="text/css" href="./css/dark_theme.css" title="dark" id="dark_theme" disabled>
+    <link rel="stylesheet" type="text/css" href="./css/light_tema.css" title="light" id="light_tema">
+    <link rel="stylesheet" type="text/css" href="./css/dark_tema.css" title="dark" id="dark_tema" disabled>
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</header>
+    <section id="menu" class="menu">
+        <img src="./assets/gifOF_logo.png" id="gifOF_logo" alt="Logo del tema ligth">
+        <nav>
+            <button class="menu_btn" id="guifos_btn">Crear Guifos</button>
+            <div class="dropdown" id="dropdown">
+                <button class="menu_btn" id="tema_btn">Elegir tema</button>
+                <button class="menu_btn" id="dropdown_btn">
+                    <img src="./assets/dropdown.svg" alt="icono dropdown" id="dropdown_icon">
+                </button>
+                <div class="hidden" id="tema_btns">
+                    <button class="tema underline" id="light">Sailor Day</button>
+                    <button class="tema" id="dark">Sailor Night</button>
+                </div>
+            </div>
+            <div>
+                <a href="misgifos.html">Mis Guifos</a>
+            </div>
+        </nav>
+    </section>
     <script src="./js/index.js" type="text/javascript"></script>
     <script src="./js/funciones.js" type="text/javascript"></script>
 </body>

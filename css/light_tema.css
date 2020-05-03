@@ -1,3 +1,18 @@
 :root{
-    
+    --background: #feeaff;
+    --letter-menu: #110038;
+    --gradient-1: #f7c9f3;
+    --gradient-2: #4180F6;
+    --backgr-1: #E6E6E6;
+    --backgr-2: #F0F0F0;
+    --backgr-3: #FFF4FD;
+    --backgr-4: #F0F0F0;
+    --backgr-5: #E6BBE2;
+    --border-1: #E6BBE2;
+    --border-2: #CCA6C9;
+    --border-3: #808080;
+    --border-4: #110038;
+    --shadow-1: #997D97;
+    --shadow-2: #B4B4B4;
+    --shadow-4: #B4B4B4;
 }
