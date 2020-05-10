@@ -1,29 +1,29 @@
 let btnLight = document.getElementById('light');
-btnLight.addEventListener('click', event =>{
-    switchTheme(event.target.id); 
+btnLight.addEventListener('click', event => {
+    cambiarTema(event.target.id);
 });
 let btnDark = document.getElementById('dark');
-btnDark.addEventListener('click', event =>{
-    switchTheme(event.target.id); 
+btnDark.addEventListener('click', event => {
+    cambiarTema(event.target.id);
 });
 
-function switchTheme(themeValue){
-    if (themeValue != 'light'){
-        document.getElementById('dark_theme').removeAttribute('disabled');
+function cambiarTema(themeValue) {
+    if (themeValue != 'light') {
+        document.getElementById('dark_tema').removeAttribute('disabled');
         document.getElementById('gifOS_logo').setAttribute('src', './assets/gifOF_logo_dark.png');
         document.getElementById('dark').classList.add('underline');
         document.getElementById('light').classList.remove('underline');
         document.getElementById("dropdown_icon").setAttribute('style', 'filter:invert();');
-        if (document.getElementById('search_lupa')){
-            document.getElementById('search_lupa').src = "./assets/Combined_Shape.svg";
-        } 
-    }else{
-        document.getElementById('dark_theme').setAttribute('disabled', '');
+        if (document.getElementById('buscar')) {
+            document.getElementById('buscar').src = "./assets/Combined_Shape.svg";
+        }
+    } else {
+        document.getElementById('dark_tema').setAttribute('disabled', '');
         document.getElementById('gifOS_logo').setAttribute('src', './assets/gifOF_logo.png');
         document.getElementById('light').classList.add('underline');
         document.getElementById('dark').classList.remove('underline');
         document.getElementById("dropdown_icon").removeAttribute('style');
-    } 
+    }
 }
 
 let crearGuifosBtn = document.getElementById('guifos_btn');
@@ -43,24 +43,24 @@ themeBtn.addEventListener('click', () => {
     clickHandler();
 });
 
-document.addEventListener('click', event =>{
+document.addEventListener('click', event => {
     let btn = document.getElementById('dropdown');
     let targetBtn = event.target;
     do {
-        if (targetBtn == btn ){
+        if (targetBtn == btn) {
             return;
         }
         targetBtn = targetBtn.parentNode;
-    }while (targetBtn);
+    } while (targetBtn);
     changeClassToHidden('themes_btns');
-    if (elementIsClicked == false){
+    if (elementIsClicked == false) {
         clickHandler();
     }
 });
- 
+
 let themeMenu = document.getElementById('dropdown');
 themeMenu.addEventListener('click', () => {
-    if (elementIsClicked == true){
+    if (elementIsClicked == true) {
         changeClassToHidden('themes_btns');
     }
 });
@@ -74,7 +74,7 @@ async function getSearchResults(search) {
 }
 
 let searchBtn = document.getElementById('search_btn');
-if (searchBtn){
+if (searchBtn) {
     searchBtn.addEventListener('click', () => {
         var searchValue = document.getElementById('search_value').value;
         createResults(searchValue);
@@ -84,20 +84,21 @@ if (searchBtn){
 function autocomplete(inp, arr) {
     var currentFocus;
     let searchAutocomplete = document.getElementById('search_autocomplete');
-    if (inp){
+    if (inp) {
         inp.addEventListener("input", function () {
             var a, b, i, val = this.value;
             closeAllLists();
             changeClassToDisplay('search_autocomplete');
-            if (!val) { 
+            if (!val) {
                 changeClassToHidden('search_autocomplete');
-                if(localStorage.getItem('theme') === 'light'){
-                    document.getElementById('search_lupa').setAttribute("src", "./assets/lupa_inactive.svg");
-                }else{
-                    document.getElementById('search_lupa').setAttribute("src", "./assets/Combined_Shape.svg");
+                if (localStorage.getItem('theme') === 'light') {
+                    document.getElementById('buscar').setAttribute("src", "./assets/lupa_inactive.svg");
+                } else {
+                    document.getElementById('buscar').setAttribute("src", "./assets/Combined_Shape.svg");
                 }
                 searchBtn.setAttribute("class", "search_btn_inactive");
-                return false;}
+                return false;
+            }
             currentFocus = -1;
             a = document.createElement("div");
             a.setAttribute("id", this.id + "autocomplete_list");
@@ -109,8 +110,8 @@ function autocomplete(inp, arr) {
                     matchFound.push(arr[i]);
                 }
             }
-            for (i = 0; i < 3; i++){
-                if (matchFound.length > 0 && matchFound[i] != null){
+            for (i = 0; i < 3; i++) {
+                if (matchFound.length > 0 && matchFound[i] != null) {
                     changeClassToDisplay('search_autocomplete');
                     b = document.createElement("div");
                     b.innerHTML = matchFound[i];
@@ -120,14 +121,14 @@ function autocomplete(inp, arr) {
                         closeAllLists();
                     });
                     a.appendChild(b);
-                } else if (matchFound.length == 0){
+                } else if (matchFound.length == 0) {
                     changeClassToHidden('search_autocomplete');
                 }
             }
             if (localStorage.getItem('theme') === 'light') {
-                document.getElementById('search_lupa').setAttribute("src", "./assets/lupa.svg");
+                document.getElementById('buscar').setAttribute("src", "./assets/lupa.svg");
             } else {
-                document.getElementById('search_lupa').setAttribute("src", "./assets/lupa_light.svg");
+                document.getElementById('buscar').setAttribute("src", "./assets/lupa_light.svg");
             }
             searchBtn.setAttribute("class", "search_btn_active");
             this.style.color = '#110038';
@@ -180,7 +181,7 @@ autocomplete(document.getElementById("search_value"), searched);
 let gifContainers = document.getElementsByClassName('sugerencia_gif_container');
 let gifTagContainers = document.getElementsByClassName("sugerencia_tag");
 let randomTags = ['anime', 'exo', 'animation', 'adamdriver', 'starwars', 'haikyuu', 'gudetama', 'cats', 'criminalminds', 'janeausten', 'nct', 'naruto', 'itachi', 'exol', 'ghibli'];
-for (let i=0; i<4; i++){
+for (let i = 0; i < 4; i++) {
     let random = randomTags[getRandomNumber(randomTags)];
     async function getRandomGif() {
         const resp = await fetch('https://api.giphy.com/v1/gifs/random?&api_key=' + apiKey + '&tag=' + random);
@@ -189,16 +190,16 @@ for (let i=0; i<4; i++){
     }
     getRandomGif().then(function (response) {
         gifContainers[i].setAttribute('style', 'background:url(' + (response.data.images.fixed_height.url) + ') center center; background-size: cover');
-        gifTagContainers[i].textContent = '#'+random;
+        gifTagContainers[i].textContent = '#' + random;
     })
-    .catch((error) => {
-        return ('Error al adquirir giphy random:' + error);
-    });
+        .catch((error) => {
+            return ('Error al adquirir giphy random:' + error);
+        });
 }
 
 let gifCloseBtns = document.getElementsByClassName("sugerencia_close_btn");
-for (let i=0; i<gifCloseBtns.length; i++){
-    gifCloseBtns[i].addEventListener('click', () =>{
+for (let i = 0; i < gifCloseBtns.length; i++) {
+    gifCloseBtns[i].addEventListener('click', () => {
         let random = randomTags[getRandomNumber(randomTags)];
         async function getRandomGif() {
             const resp = await fetch('https://api.giphy.com/v1/gifs/random?&api_key=' + apiKey + '&tag=' + random);
@@ -209,13 +210,13 @@ for (let i=0; i<gifCloseBtns.length; i++){
             gifContainers[i].setAttribute('style', 'background:url(' + (response.data.images.fixed_height.url) + ') center center; background-size: cover');
             gifTagContainers[i].textContent = '#' + random;
         })
-        .catch((error) => {
-            return ('Error al adquirir giphy random:'+ error);
-        });
+            .catch((error) => {
+                return ('Error al adquirir giphy random:' + error);
+            });
     });
 }
 let verMasBtn = document.getElementsByClassName("ver_mas_btn");
-for(let i = 0; i < verMasBtn.length; i++){
+for (let i = 0; i < verMasBtn.length; i++) {
     verMasBtn[i].addEventListener('click', () => {
         createResults(gifTagContainers[i].textContent.substring(1));
     });
