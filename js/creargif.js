@@ -67,10 +67,6 @@ function getStreamAndRecord() {
         });
 }
 
-function dirigirPaginaPrincipal() {
-    location.href = 'index.html';
-}
-
 let closeBtns = document.getElementsByClassName('create_btn_close');
 Array.prototype.forEach.call(closeBtns, function (closeBtn) {
     closeBtn.addEventListener('click', dirigirPaginaPrincipal, true);

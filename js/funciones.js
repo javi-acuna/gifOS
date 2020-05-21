@@ -1,5 +1,9 @@
 const apiKey = 'jmYK2Dbc6qUekM4f11S8Cn9bZOcQSDtg';
 
+function dirigirPaginaPrincipal() {
+    location.href = 'index.html';
+}
+
 function hiddenToggle(elementId) {
     let element = document.getElementById(elementId);
     element.classList.toggle("hidden");
@@ -29,7 +33,7 @@ function getRandom(arr) {
     return randomPosition;
 }
 
-function createGridWithGifos(x, y, arr){
+function createGrid(x, y, arr){
     for (let i = 0; i < arr.length; i++) {
         let grid = document.getElementById(x);
         let gridDivs = document.createElement('div');
@@ -55,6 +59,27 @@ function createGridWithGifos(x, y, arr){
     }
 }
 
+function getSaveGifByIDAndGrid(x, y, id) {
+    const gifsId = fetch('https://api.giphy.com/v1/gifs?api_key=' + apiKey + '&ids=' + id)
+        .then(response => {
+            return response.json();
+        })
+        .then(dt => {
+            let gifsById = dt.data;
+            createGrid(x, y, gifsById);
+            return dt
+        });
+}
+
+function getLink(x) {
+    let aux = document.createElement("input");
+    aux.setAttribute("value", x);
+    document.body.appendChild(aux);
+    aux.select();
+    document.execCommand("copy");
+    document.body.removeChild(aux);
+}
+
 function createRandomSearchGrid (x, y, arr){
     let dt = [];
     while (dt.length <= 11) {
@@ -63,7 +88,7 @@ function createRandomSearchGrid (x, y, arr){
             dt.push(arr[number]);
         } 
     }
-    createGridWithGifos(x, y, dt);
+    createGrid(x, y, dt);
 }
 
 function createResults(searchValue) {
@@ -112,25 +137,4 @@ function createResults(searchValue) {
             }
         }
     });
-}
-
-function getSaveGifByIDAndGrid(x, y, id) {
-    const gifsId = fetch('https://api.giphy.com/v1/gifs?api_key=' + apiKey + '&ids=' + id)
-        .then(response => {
-            return response.json();
-        })
-        .then(dt => {
-            let gifsById = dt.data;
-            createGridWithGifos(x, y, gifsById);
-            return dt
-        });
-}
-
-function getLink(x) {
-    let aux = document.createElement("input");
-    aux.setAttribute("value", x);
-    document.body.appendChild(aux);
-    aux.select();
-    document.execCommand("copy");
-    document.body.removeChild(aux);
 }

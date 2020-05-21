@@ -83,7 +83,7 @@ button:focus {
   font-size: 0;
   display: block;
 }
-#theme_btn {
+#tema_btn {
   width: 131px;
   font-size: 16px;
   letter-spacing: 0;
@@ -99,7 +99,7 @@ button:focus {
   text-decoration-color: var(--letter-menu);
   padding-top: 2px;
 }
-#themes_btns {
+#temas_btns {
   width: 167px;
   background: var(--backgr1);
   box-shadow: inset -2px -2px 0 0 var(--shadow2), inset 2px 2px 0 0 #ffffff;
@@ -107,7 +107,7 @@ button:focus {
   justify-content: space-around;
   flex-flow: column;
 }
-#themes_btns > button {
+#temas_btns > button {
   width: 150px;
   text-align: left;
   padding-left: 16px;
@@ -379,7 +379,7 @@ input:focus {
   background: var(--backgr6);
 }
 
-#trending_title {
+#tendencias_title {
   background: #fffafe;
   border: 1px solid var(--border1);
   box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 var(--shadow3);

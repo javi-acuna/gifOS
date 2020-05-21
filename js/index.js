@@ -26,6 +26,12 @@ function cambiarTema(themeValue) {
     }
 }
 
+let themeBtn = document.getElementById('tema_btn');
+themeBtn.addEventListener('click', () => {
+    changeClassToDisplay('temas_btns');
+    clickHandler();
+});
+
 let crearGuifosBtn = document.getElementById('guifos_btn');
 crearGuifosBtn.addEventListener('click', () => {
     location.href = 'creargif.html';
@@ -33,13 +39,7 @@ crearGuifosBtn.addEventListener('click', () => {
 
 let dropdownBtn = document.getElementById('dropdown_btn');
 dropdownBtn.addEventListener('click', () => {
-    changeClassToDisplay('themes_btns');
-    clickHandler();
-});
-
-let themeBtn = document.getElementById('theme_btn');
-themeBtn.addEventListener('click', () => {
-    changeClassToDisplay('themes_btns');
+    changeClassToDisplay('temas_btns');
     clickHandler();
 });
 
@@ -52,7 +52,7 @@ document.addEventListener('click', event => {
         }
         targetBtn = targetBtn.parentNode;
     } while (targetBtn);
-    changeClassToHidden('themes_btns');
+    changeClassToHidden('temas_btns');
     if (elementIsClicked == false) {
         clickHandler();
     }
@@ -61,7 +61,7 @@ document.addEventListener('click', event => {
 let themeMenu = document.getElementById('dropdown');
 themeMenu.addEventListener('click', () => {
     if (elementIsClicked == true) {
-        changeClassToHidden('themes_btns');
+        changeClassToHidden('temas_btns');
     }
 });
 
@@ -91,7 +91,7 @@ function autocomplete(inp, arr) {
             changeClassToDisplay('search_autocomplete');
             if (!val) {
                 changeClassToHidden('search_autocomplete');
-                if (localStorage.getItem('theme') === 'light') {
+                if (localStorage.getItem('tema') === 'light') {
                     document.getElementById('buscar').setAttribute("src", "./assets/lupa_inactive.svg");
                 } else {
                     document.getElementById('buscar').setAttribute("src", "./assets/Combined_Shape.svg");
@@ -125,7 +125,7 @@ function autocomplete(inp, arr) {
                     changeClassToHidden('search_autocomplete');
                 }
             }
-            if (localStorage.getItem('theme') === 'light') {
+            if (localStorage.getItem('tema') === 'light') {
                 document.getElementById('buscar').setAttribute("src", "./assets/lupa.svg");
             } else {
                 document.getElementById('buscar').setAttribute("src", "./assets/lupa_light.svg");
@@ -180,7 +180,7 @@ autocomplete(document.getElementById("search_value"), searched);
 
 let gifContainers = document.getElementsByClassName('sugerencia_gif_container');
 let gifTagContainers = document.getElementsByClassName("sugerencia_tag");
-let randomTags = ['Anime', 'SailorMercury', 'Jonathanvanness', 'starwars', 'FabFive', 'Cats', 'Unicorns', 'naruto', 'Dogs'];
+let randomTags = ['Anime', 'Music', 'Dance', 'sailormercury', 'Jonathanvanness', 'starwars', 'FabFive', 'Cats', 'Unicorns', 'naruto', 'Dogs', 'Love', 'Disney', 'Animals', 'exo'];
 for (let i = 0; i < 4; i++) {
     let random = randomTags[getRandom(randomTags)];
     async function getRandomGif() {
@@ -222,15 +222,16 @@ for (let i = 0; i < verMasBtn.length; i++) {
     });
 }
 
-async function getTrendingGif() {
+async function getTendencias() {
     const resp = await fetch('https://api.giphy.com/v1/gifs/trending?&api_key=' + apiKey);
     const dt = await resp.json();
     return dt;
 }
-getTrendingGif().then(function (response) {
+
+getTendencias().then(function (response) {
     let trendingGifs = response.data;
-    createGridWithGifos('grid_container', 'trending', trendingGifs);
+    createGrid('grid_container', 'tendencias', trendingGifs);
 })
     .catch((error) => {
-        return ('Error al adquirir giphy trending:' + error)
+        return ('Error al mostrar tendencias:' + error)
     });
