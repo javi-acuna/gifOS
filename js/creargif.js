@@ -21,7 +21,7 @@ function getStreamAndRecord() {
                     console.log('started')
                 }
             });
-            document.getElementById('camera_capturar_btns').addEventListener('click', () => {
+            document.getElementById('capturar_btns').addEventListener('click', () => {
                 recorder.startRecording();
             });
             document.getElementById('recording_listo_btns').addEventListener('click', () => {
@@ -67,17 +67,18 @@ function getStreamAndRecord() {
         });
 }
 
-function relocateToIndex() {
+function dirigirPaginaPrincipal() {
     location.href = 'index.html';
 }
+
 let closeBtns = document.getElementsByClassName('create_btn_close');
 Array.prototype.forEach.call(closeBtns, function (closeBtn) {
-    closeBtn.addEventListener('click', relocateToIndex, true);
+    closeBtn.addEventListener('click', dirigirPaginaPrincipal, true);
 });
 
 [document.querySelector('#arrow'), document.getElementById('cancelar_btn'), 
     document.getElementById('cancelar_upload_btn')].forEach(element => {
-        element.addEventListener('click', relocateToIndex, true);
+        element.addEventListener('click', dirigirPaginaPrincipal, true);
 });
 
 document.getElementById('comenzar_btn').addEventListener('click', () => {
@@ -86,8 +87,8 @@ document.getElementById('comenzar_btn').addEventListener('click', () => {
     getStreamAndRecord();
 });
 
-document.getElementById('camera_capturar_btns').addEventListener('click', () => {
-    hiddenToggle('camera_capturar_btns');
+document.getElementById('capturar_btns').addEventListener('click', () => {
+    hiddenToggle('capturar_btns');
     hiddenToggle('recording_listo_btns');
     document.getElementById('chequeo_title').textContent = 'Capturando Tu Guifo';
 });
@@ -106,12 +107,14 @@ document.getElementById('repetir_btn').addEventListener('click', () => {
     getStreamAndRecord();
     hiddenToggle('vista_previa_container');
     hiddenToggle('chequeo_container');
-    hiddenToggle('camera_capturar_btns');
+    hiddenToggle('capturar_btns');
     hiddenToggle('recording_listo_btns');
     document.getElementById('chequeo_title').textContent = 'Un Chequeo Antes De Empezar';
 });
 document.getElementById('fin_btn').addEventListener('click', () => {
-    location.href = 'misgifos.html';
+    location.href = 'misguifos.html';
 });
 
-if (gifsIdsStorage){getSaveGifByIDAndGrid('uploaded_guifos_container', 'uploaded', gifsIdsStorage)};
+if (gifsIdsStorage){
+    getSaveGifByIDAndGrid('uploaded_guifos_container', 'uploaded', gifsIdsStorage)
+};

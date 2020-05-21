@@ -180,9 +180,9 @@ autocomplete(document.getElementById("search_value"), searched);
 
 let gifContainers = document.getElementsByClassName('sugerencia_gif_container');
 let gifTagContainers = document.getElementsByClassName("sugerencia_tag");
-let randomTags = ['anime', 'exo', 'animation', 'adamdriver', 'starwars', 'haikyuu', 'gudetama', 'cats', 'criminalminds', 'janeausten', 'nct', 'naruto', 'itachi', 'exol', 'ghibli'];
+let randomTags = ['Anime', 'SailorMercury', 'Jonathanvanness', 'starwars', 'FabFive', 'Cats', 'Unicorns', 'naruto', 'Dogs'];
 for (let i = 0; i < 4; i++) {
-    let random = randomTags[getRandomNumber(randomTags)];
+    let random = randomTags[getRandom(randomTags)];
     async function getRandomGif() {
         const resp = await fetch('https://api.giphy.com/v1/gifs/random?&api_key=' + apiKey + '&tag=' + random);
         const datos = await resp.json();
@@ -200,7 +200,7 @@ for (let i = 0; i < 4; i++) {
 let gifCloseBtns = document.getElementsByClassName("sugerencia_close_btn");
 for (let i = 0; i < gifCloseBtns.length; i++) {
     gifCloseBtns[i].addEventListener('click', () => {
-        let random = randomTags[getRandomNumber(randomTags)];
+        let random = randomTags[getRandom(randomTags)];
         async function getRandomGif() {
             const resp = await fetch('https://api.giphy.com/v1/gifs/random?&api_key=' + apiKey + '&tag=' + random);
             const datos = await resp.json();

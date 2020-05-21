@@ -140,11 +140,11 @@ button:focus {
   outline: 1px dotted #110038;
   outline-offset: -4px;
 }
-#mis_guifos_menu {
+#misGuifos_menu {
   width: 95px;
   padding: 7px 0 7px 0;
 }
-#mis_guifos_menu:hover {
+#misGuifos_menu:hover {
   outline: 1px dotted var(--letter-menu);
 }
 

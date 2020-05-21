@@ -24,7 +24,7 @@ function clickHandler() {
     }
 }
 
-function getRandomNumber(arr) {
+function getRandom(arr) {
     let randomPosition = Math.floor((arr.length - 0) * Math.random());
     return randomPosition;
 }
@@ -58,7 +58,7 @@ function createGridWithGifos(x, y, arr){
 function createRandomSearchGrid (x, y, arr){
     let dt = [];
     while (dt.length <= 11) {
-        let number = getRandomNumber(arr);
+        let number = getRandom(arr);
         if (dt.includes(arr[number]) == false) {
             dt.push(arr[number]);
         } 
