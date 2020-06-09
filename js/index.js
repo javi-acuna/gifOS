@@ -1,12 +1,5 @@
 let btnLight = document.getElementById('light');
 
-let storageTheme = localStorage.getItem('theme');
-if(storageTheme === 'light'){
-    switchTheme('light');
-} else if (storageTheme === 'dark') {
-    switchTheme('dark');
-}
-
 btnLight.addEventListener('click', event => {
     cambiarTema(event.target.id);
 });
@@ -26,14 +19,12 @@ function cambiarTema(themeValue) {
         if (document.getElementById('buscar')) {
             document.getElementById('buscar').src = "./assets/Combined_Shape.svg";
         }
-        localStorage.setItem('theme', themeValue);
     } else {
         document.getElementById('dark_tema').setAttribute('disabled', '');
         document.getElementById('gifOS_logo').setAttribute('src', './assets/gifOF_logo.png');
         document.getElementById('light').classList.add('underline');
         document.getElementById('dark').classList.remove('underline');
         document.getElementById("dropdown_icon").removeAttribute('style');
-        localStorage.setItem('theme', themeValue);
     }
 }
 
