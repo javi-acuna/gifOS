@@ -1,0 +1,31 @@
+:root{
+    --background: #ffeffd;
+    --letter-menu: #110038;
+    --gradient1: #f7c9f3;
+    --gradient2: #4180F6;
+
+    --backgr1: #E6E6E6;
+    --backgr2: #F0F0F0;
+    --backgr3: #FFF4FD;
+    --backgr4: #F0F0F0;
+    --backgr5: #E6BBE2;
+    --backgr6: #3A72DB;
+    --backgr7: #DBDBDB;
+    --backgr8: #F0E5EE;
+    --backgr9: #FFF4FD;
+
+    --border1: #E6BBE2;
+    --border2: #CCA6C9;
+    --border3: #808080;
+    --border4: #110038;
+
+    --shadow1: #997D97;
+    --shadow2: #B4B4B4;
+    --shadow3: #80687D;
+    --shadow4: #B4B4B4;
+    --shadow5: #284f99;
+    --shadow6: #E6DCE4;
+    --shadow7: #B4B4B4;
+    --shadow8: #997D97;
+    --shadow9: #FFFFFF; 
+}
