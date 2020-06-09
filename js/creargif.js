@@ -1,5 +1,6 @@
 const video = document.querySelector('video');
 let gifsIdsStorage = localStorage.getItem('gifs_id');
+
 function getStreamAndRecord() {
     navigator.mediaDevices.getUserMedia({
         audio: false,
@@ -35,6 +36,7 @@ function getStreamAndRecord() {
                     uploadedGif.src = url;
                     let form = new FormData();
                     form.append('file', blob, 'myGif.gif');
+                    console.log(form.get('file'));
                     document.getElementById('subir_btn').addEventListener('click', () => {
                         fetch('https://upload.giphy.com/v1/gifs?&api_key=' + apiKey, {
                             method: 'Post',
@@ -67,7 +69,7 @@ function getStreamAndRecord() {
         });
 }
 
-let closeBtns = document.getElementsByClassName('create_btn_close');
+let closeBtns = document.getElementsByClassName('crear_btn_close');
 Array.prototype.forEach.call(closeBtns, function (closeBtn) {
     closeBtn.addEventListener('click', dirigirPaginaPrincipal, true);
 });
@@ -86,7 +88,7 @@ document.getElementById('comenzar_btn').addEventListener('click', () => {
 document.getElementById('capturar_btns').addEventListener('click', () => {
     hiddenToggle('capturar_btns');
     hiddenToggle('recording_listo_btns');
-    document.getElementById('chequeo_title').textContent = 'Capturando Tu Guifo';
+    document.getElementById('chequeo_titulo').textContent = 'Capturando Tu Guifo';
 });
 
 document.getElementById('recording_listo_btns').addEventListener('click', () => {
@@ -105,7 +107,7 @@ document.getElementById('repetir_btn').addEventListener('click', () => {
     hiddenToggle('chequeo_container');
     hiddenToggle('capturar_btns');
     hiddenToggle('recording_listo_btns');
-    document.getElementById('chequeo_title').textContent = 'Un Chequeo Antes De Empezar';
+    document.getElementById('chequeo_titulo').textContent = 'Un Chequeo Antes De Empezar';
 });
 document.getElementById('fin_btn').addEventListener('click', () => {
     location.href = 'misguifos.html';

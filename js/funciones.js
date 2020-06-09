@@ -1,4 +1,4 @@
-const apiKey = 'jmYK2Dbc6qUekM4f11S8Cn9bZOcQSDtg';
+const apiKey = 'xLMPFe00k7ZVvICD5UvnkTUfRKyYarlI';
 
 function dirigirPaginaPrincipal() {
     location.href = 'index.html';
@@ -99,13 +99,13 @@ function createResults(searchValue) {
             x.removeChild(x.lastChild);
             x.removeChild(x.lastChild);
         }
-        if (document.getElementById('searched_title')) {
-            let searchedTitle = document.getElementById('searched_title');
+        if (document.getElementById('searched_titulo')) {
+            let searchedTitle = document.getElementById('searched_titulo');
             searchedTitle.remove();
         }
         if (searchGifs.length == 0){
             let r = document.createElement('div');
-            r.id = 'searched_title'
+            r.id = 'searched_titulo'
             r.innerHTML = 'No se han encontrado resultados de #' + searchValue;
             x.appendChild(r);
             return false;
@@ -114,7 +114,7 @@ function createResults(searchValue) {
         y.id = 'search_grid_container';
         x.appendChild(y);
         let z = document.createElement('h2');
-        z.id = 'searched_title';
+        z.id = 'searched_titulo';
         z.innerHTML = searchValue.toLowerCase() + ' (resultados)';
         y.before(z);
         createRandomSearchGrid('search_grid_container', 'searched', searchGifs);

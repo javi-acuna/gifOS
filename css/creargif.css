@@ -7,10 +7,10 @@
 #arrow{
     margin-right: 8px;
 }
-#create button{
+#crear button{
     font-size: 16px;
 }
-.create_container{
+.crear_container{
     background: var(--backgr1);
     box-shadow: inset -2px -2px 0 0 var(--shadow2), inset 2px 2px 0 0 #FFFFFF;
     width: 65%;
@@ -19,7 +19,7 @@
     margin-top: 7%;
     margin-bottom: 13%;
 }
-.create_container_2{
+.crear_container_2{
     background: var(--backgr1);
     box-shadow: inset -2px -2px 0 0 var(--shadow2), inset 2px 2px 0 0 #FFFFFF;
     width: max-content;
@@ -29,7 +29,7 @@
     margin-bottom: 13%;
 }
 
-.create_title_container{
+.crear_titulo_container{
     background-image: linear-gradient(270deg, var(--gradient1) 0%, var(--gradient2) 100%);
     width: 100%;
     height: 24px;
@@ -38,31 +38,31 @@
     align-items: center;
     padding: 3px 0 3px 4px;
 }
-.create_title_container button{
+.crear_titulo_container button{
     width: 16px;
     height: 14px;
     border: 0px;
     margin: 0;
     margin-right: 5px;
 }
-.create_title{
+.crear_titulo{
     font-size: 14px;
     line-height: 18px;
     color: #FFFFFF;
     letter-spacing: 0;
 }
 
-.create_content{
+.crear_content{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin: 30px 93px 28px 25px;
 }
-.create_content img{
+.crear_content img{
     height: 32px;
     margin-right: 17px;
 }
-.create_content_2{
+.crear_content_2{
     background: #FFFFFF;
     border: 1px solid #979797;
     box-shadow: inset -2px -2px 0 0 var(--backgr1), inset 2px 2px 0 0 #000000;
@@ -70,7 +70,7 @@
     min-height: 294px;
     margin: 3px 17px 16px 11px;
 }
-.create_content_3{
+.crear_content_3{
     background: #FFFFFF;
     border: 1px solid #979797;
     box-shadow: inset -2px -2px 0 0 var(--backgr1), inset 2px 2px 0 0 #000000;
@@ -78,47 +78,47 @@
     height: 356px;
     margin: 3px 17px 16px 11px;
 } 
-.create_content_4{
+.crear_content_4{
     background: #FFFFFF;
     border: 1px solid #979797;
     box-shadow: inset -2px -2px 0 0 var(--backgr1), inset 2px 2px 0 0 #000000;
     padding: 3px 3px 3px 3px;
 }
-.create_content_5{
+.crear_content_5{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin: 30px 45px 28px 25px;
 }
 
-.create_btns{
+.crear_btns{
     margin-left: calc(100% - 36px - 12px - 144px - 144px);
 }
 
-.create_btns_2{
+.crear_btns_2{
     margin-left: calc(100% - 17px - 36px - 144px);
 }
 
-.create_btns_2 img{
+.crear_btns_2 img{
     vertical-align: middle;
 }
 
-.create_btns_3{
+.crear_btns_3{
     margin-left: calc(100% - 17px - 12px - 144px - 144px);
 }
 
-.create_btns_4{
+.crear_btns_4{
     margin-left: calc(100% - 17px - 144px);
 }
 
-.create_btns_5{
+.crear_btns_5{
     margin-left: calc(100% - 45px - 144px);
 }
 
-#create_text h3{
+#crear_text h3{
     font-size: 16px;
 }
-#create_text p{
+#crear_text p{
     margin-top: 17px;
     font-size: 14px;
 }
@@ -176,7 +176,7 @@ video, #preview_gif{
     border: 1px solid #110038;
     box-shadow: inset -1px -1px 0 0 var(--shadow1), inset 1px 1px 0 0 #FFFFFF;
 }
-#camera_btn{
+#camara_btn{
     width: 36px;
     float: left;
     background: var(--gradient1);
@@ -241,8 +241,8 @@ video, #preview_gif{
     box-shadow: inset -1px -1px 0 0 var(--shadow1), inset 1px 1px 0 0 #FFFFFF;
     margin-top: 30px;
 }
-/* MIS GUIFOS SECTION */
-#misguifos_title{
+
+#misguifos_titulo{
     background: #FFFAFE;
     border: 1px solid var(--border1);
     box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 var(--shadow3);
